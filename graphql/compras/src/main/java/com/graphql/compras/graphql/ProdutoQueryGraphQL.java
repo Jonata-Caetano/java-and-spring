@@ -3,8 +3,8 @@ package com.graphql.compras.graphql;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.graphql.compras.domain.Cliente;
-import com.graphql.compras.domain.ClienteService;
+import com.graphql.compras.domain.Produto;
+import com.graphql.compras.domain.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -12,27 +12,27 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class ClienteQueryGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
+public class ProdutoQueryGraphQL implements GraphQLQueryResolver, GraphQLMutationResolver {
 
-    private final ClienteService service;
+    private final ProdutoService service;
 
-    public Cliente cliente(Long id) {
+    public Produto produto(Long id) {
         return service.findById(id);
     }
 
-    public List<Cliente> clientes() {
+    public List<Produto> produtos() {
         return service.findAll();
     }
 
-    public Cliente saveCliente(ClienteInput input) {
-        return service.save(Cliente.builder()
+    public Produto saveProduto(ProdutoInput input) {
+        return service.save(Produto.builder()
                 .id(input.getId())
                 .nome(input.getNome())
-                .email(input.getEmail())
+                .valor(input.getValor())
                 .build());
     }
 
-    public Boolean deleteCliente(Long id) {
+    public Boolean deleteProduto(Long id) {
         return service.deleteById(id);
     }
 }

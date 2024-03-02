@@ -1,4 +1,4 @@
-package com.graphql.compras.graphql;
+package com.graphql.compras.domain;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,20 +8,20 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ClienteService {
+public class CompraService {
 
-    private final ClienteRepository repository;
+    private final CompraRepository repository;
 
-    public Cliente findById(Long id) {
+    public Compra findById(Long id) {
         return repository.findById(id).orElse(null);
     }
 
-    public List<Cliente> findAll() {
+    public List<Compra> findAll() {
         return repository.findAll();
     }
 
     @Transactional
-    public Cliente save(Cliente cliente) {
+    public Compra save(Compra cliente) {
         return repository.save(cliente);
     }
 

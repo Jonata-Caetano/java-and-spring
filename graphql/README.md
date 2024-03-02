@@ -1,1 +1,1 @@
-# java-and-spring
+# graphql

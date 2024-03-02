@@ -1,4 +1,4 @@
-package com.graphql.compras.graphql;
+package com.graphql.compras.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,11 +17,11 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Builder
 @Entity
-public class Cliente {
+public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String email;
+    private Double valor;
 }
