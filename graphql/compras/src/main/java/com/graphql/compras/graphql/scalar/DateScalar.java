@@ -23,7 +23,7 @@ public class DateScalar extends GraphQLScalarType {
             @Override
             public String serialize(Object input) {
                 if (input instanceof Date) {
-                    return DateUtils.toString((Date) input);
+                    return DateUtils.formatarData((Date) input);
                 }
                 throw new CoercingSerializeException(INVALID_DATE + input);
             }
@@ -31,7 +31,7 @@ public class DateScalar extends GraphQLScalarType {
             @Override
             public Date parseValue(Object input) {
                 if (input instanceof String) {
-                    Date dt = DateUtils.toDate((String) input);
+                    Date dt = DateUtils.converterParaData((String) input);
                     if (dt != null) {
                         return dt;
                     }
@@ -43,11 +43,11 @@ public class DateScalar extends GraphQLScalarType {
             public Date parseLiteral(Object input) {
                 if (!(input instanceof StringValue)) return null;
                 String s = ((StringValue) input).getValue();
-                Date dt = DateUtils.toDate(s);
+                Date dt = DateUtils.converterParaData(s);
                 if (dt != null) {
                     return dt;
                 }
-                throw new CoercingParseLiteralException("Invalid Date: " + input);
+                throw new CoercingParseLiteralException(INVALID_DATE + input);
             }
         });
     }

@@ -1,6 +1,7 @@
 package com.graphql.compras.domain;
 
 import com.graphql.compras.graphql.dto.CompraResumo;
+import com.graphql.compras.graphql.exception.DomainException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,11 @@ public class CompraService {
     }
 
     @Transactional
-    public Compra save(Compra cliente) {
-        return repository.save(cliente);
+    public Compra save(Compra compra) {
+        if(compra.getQuantidade() > 100) {
+            throw new DomainException("Não é possível fazer uma compra com mais de 100 items");
+        }
+        return repository.save(compra);
     }
 
     @Transactional
