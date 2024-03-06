@@ -36,7 +36,13 @@ public class CompraQueryGraphQL implements GraphQLQueryResolver, GraphQLMutation
     }
 
     public Compra saveCompra(CompraInput input) {
-        return service.save(Compra.builder().id(input.getId()).data(new Date()).quantidade(input.getQuantidade()).status(input.getStatus()).cliente(clienteService.findById(input.getClienteId())).produto(produtoService.findById(input.getProdutoId())).build());
+        return service.save(Compra.builder()
+                .id(input.getId())
+                .data(new Date())
+                .quantidade(input.getQuantidade())
+                .status(input.getStatus())
+                .cliente(clienteService.findById(input.getClienteId()))
+                .produto(produtoService.findById(input.getProdutoId())).build());
     }
 
     public Boolean deleteCompra(Long id) {

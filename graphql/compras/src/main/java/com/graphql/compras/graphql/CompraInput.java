@@ -1,10 +1,12 @@
 package com.graphql.compras.graphql;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Builder
 public class CompraInput {
 
     private Long id;

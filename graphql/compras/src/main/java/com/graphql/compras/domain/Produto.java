@@ -6,18 +6,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Cacheable
 @Entity
-public class Produto {
+public class Produto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

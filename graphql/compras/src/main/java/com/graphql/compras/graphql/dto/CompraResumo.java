@@ -2,16 +2,10 @@ package com.graphql.compras.graphql.dto;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
-@NoArgsConstructor
-@Builder
 public class CompraResumo {
 
     private Long compraId;

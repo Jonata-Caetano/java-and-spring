@@ -1,5 +1,5 @@
-{
-    clientes {
-        id,nome,email
-    }
-}
+#{
+#    clientes {
+#        id,nome,email
+#    }
+#}

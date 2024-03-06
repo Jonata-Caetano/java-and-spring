@@ -12,14 +12,31 @@ spring:
   jpa:
     show-sql: true
     properties:
+      javax:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         format_sql: true
         ddl-auto: none
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
+
 
 # Logging
 logging:
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
   level:
-    org.hibernate.SQL: debug
+    org:
+      hibernate:
+        SQL: debug
+        cache: debug
+
+# deploy heroku
+  server:
+    port=${PORT:5000}
