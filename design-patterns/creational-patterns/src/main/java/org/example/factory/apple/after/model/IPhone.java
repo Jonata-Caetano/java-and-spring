@@ -1,4 +1,4 @@
-package org.example.factory.apple.model;
+package org.example.factory.apple.after.model;
 
 public abstract class IPhone {
 	

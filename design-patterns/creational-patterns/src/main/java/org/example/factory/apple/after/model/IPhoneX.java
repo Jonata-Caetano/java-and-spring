@@ -1,4 +1,6 @@
-package org.example.factory.apple.model;
+package org.example.factory.apple.after.model;
+
+import org.example.factory.apple.after.model.IPhone;
 
 public class IPhoneX extends IPhone {
 
