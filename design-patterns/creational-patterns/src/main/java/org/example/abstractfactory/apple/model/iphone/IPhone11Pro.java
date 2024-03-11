@@ -1,7 +1,7 @@
 package org.example.abstractfactory.apple.model.iphone;
 
 
-import org.example.abstractfactory.apple.factory.abstractFactory.CountryRulesAbstractFactory;
+import org.example.abstractfactory.apple.factory.abstractfactory.CountryRulesAbstractFactory;
 
 public class IPhone11Pro extends IPhone {
 

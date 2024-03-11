@@ -1,6 +1,6 @@
 package org.example.abstractfactory.apple.factory;
 
-import org.example.abstractfactory.apple.factory.abstractFactory.CountryRulesAbstractFactory;
+import org.example.abstractfactory.apple.factory.abstractfactory.CountryRulesAbstractFactory;
 import org.example.abstractfactory.apple.model.iphone.IPhone;
 import org.example.abstractfactory.apple.model.iphone.IPhoneX;
 import org.example.abstractfactory.apple.model.iphone.IPhoneXSMax;
