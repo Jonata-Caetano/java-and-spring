@@ -1,0 +1,6 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(—ÔÂüÿÿÿÿ
+™
+java:S1130"}Remove the declaration of thrown exception 'java.lang.CloneNotSupportedException', as it cannot be thrown from method's body.(ÂôP8“¬†Åá1
+@	java:S106
+"+Replace this use of System.out by a logger.(Ø¼¢ƒ

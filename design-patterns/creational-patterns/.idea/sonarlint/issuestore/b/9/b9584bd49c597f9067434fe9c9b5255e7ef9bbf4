@@ -1,0 +1,11 @@
+
+k
+java:S1192"IDefine a constant instead of duplicating this literal "standard" 3 times.(í¯·˜üÿÿÿÿ8Áá»ñá1
+j
+java:S1192"HDefine a constant instead of duplicating this literal "highEnd" 3 times.(´£ò¹øÿÿÿÿ8Âá»ñá1
+f
+java:S2259"DA "NullPointerException" could be thrown; "device" is nullable here.(ÏÙ«øÿÿÿÿ8Íá»ñá1
+G	java:S106("+Replace this use of System.out by a logger.(„Çğö8Ôá»ñá1
+L	java:S106*"+Replace this use of System.out by a logger.(ø’Éñşÿÿÿÿ8Õá»ñá1
+L	java:S106,"+Replace this use of System.out by a logger.(ÈŞ«‚şÿÿÿÿ8Õá»ñá1
+L	java:S106."+Replace this use of System.out by a logger.(¼ä¢Ûÿÿÿÿÿ8Õá»ñá1
