@@ -1,9 +1,10 @@
-Feature:Aprender Cucumber
+# language: pt
+Funcionalidade: Aprender Cucumber
   Como um aluno
   Eu quero aprender a utilizar o Cucumber
   Para que eu possa automatizar criterios de aceitacao
 
-Scenario:Deve executar especificacao
-  Given que criei o arquivo corretamente
-  When executa-lo
-  Then a especificacao deve finalizar com sucesso
+Cenario: Deve executar especificacao
+  Dado que criei o arquivo corretamente
+  Quando executa-lo
+  Então a especificacao deve finalizar com sucesso
