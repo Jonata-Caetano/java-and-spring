@@ -2,6 +2,9 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -38,4 +41,31 @@ public class LearnCucumber {
         assertEquals(arg2, contador);
     }
 
+
+    Date entrega = new Date();
+
+    @Dado("que o prazo eh dia {int}\\/{int}\\/{int}")
+    public void queOPrazoEDia(int dia, int mes, int ano) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.DAY_OF_MONTH, dia);
+        calendar.set(Calendar.MONTH, mes);
+        calendar.set(Calendar.YEAR, ano);
+        entrega = calendar.getTime();
+    }
+
+    @Quando("a entrega atrasar em {int} dias")
+    public void aEntregaAtrasarEmDias(int arg0) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(entrega);
+        calendar.add(Calendar.DAY_OF_MONTH,arg0);
+        entrega = calendar.getTime();
+    }
+
+    @Dado("que o prazo eh dia {int}\\/{int}\\/{int}")
+    public void queOPrazoEhDia(int arg0, int arg1, int arg2) {
+    }
+
+    @Então("a entrega sera efetuada em {int}\\/{int}\\/{int}")
+    public void aEntregaSeraEfetuadaEm(int arg0, int arg1, int arg2) {
+    }
 }
