@@ -20,7 +20,7 @@ Funcionalidade: Aprender Cucumber
     Então a entrega sera efetuada em 07/04/2018
 
   Cenário: Deve criar steps genéricos para estes passos
-    Dado que o ticket é AF345
+    Dado que o ticket é "AF345"
     Dado que o valor da passagem é R$ 230,45
     Dado que o nome do passageiro é "Fulano da Silva"
     Dado que o telefone do passageiro é "9999-9999"
