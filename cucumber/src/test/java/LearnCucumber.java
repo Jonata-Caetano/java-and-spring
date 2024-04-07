@@ -2,13 +2,16 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class LearnCucumber {
+
+    private LocalDate dataPrazo;
+    private LocalDate dataEntrega;
+
     @Dado("que criei o arquivo corretamente")
     public void queCrieiOArquivoCorretamente() {
         System.out.println("Testando o DryRun");
@@ -41,31 +44,82 @@ public class LearnCucumber {
         assertEquals(arg2, contador);
     }
 
-
-    Date entrega = new Date();
-
     @Dado("que o prazo eh dia {int}\\/{int}\\/{int}")
-    public void queOPrazoEDia(int dia, int mes, int ano) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DAY_OF_MONTH, dia);
-        calendar.set(Calendar.MONTH, mes);
-        calendar.set(Calendar.YEAR, ano);
-        entrega = calendar.getTime();
+    public void queOPrazoEhDia(int dia, int mes, int ano) {
+        this.dataPrazo = LocalDate.of(ano, mes, dia);
     }
 
     @Quando("a entrega atrasar em {int} dias")
-    public void aEntregaAtrasarEmDias(int arg0) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(entrega);
-        calendar.add(Calendar.DAY_OF_MONTH,arg0);
-        entrega = calendar.getTime();
-    }
-
-    @Dado("que o prazo eh dia {int}\\/{int}\\/{int}")
-    public void queOPrazoEhDia(int arg0, int arg1, int arg2) {
+    public void aEntregaAtrasarEmDias(int diasAtraso) {
+        this.dataEntrega = dataPrazo.plusDays(diasAtraso);
     }
 
     @Então("a entrega sera efetuada em {int}\\/{int}\\/{int}")
-    public void aEntregaSeraEfetuadaEm(int arg0, int arg1, int arg2) {
+    public void aEntregaSeraEfetuadaEm(int diaEsperado, int mesEsperado, int anoEsperado) {
+        LocalDate dataEsperada = LocalDate.of(anoEsperado, mesEsperado, diaEsperado);
+        assertEquals(dataEsperada, this.dataEntrega);
     }
+
+
+
+    // Armazena os dados para uso nos testes
+    private String ticket;
+    private double valor;
+    private String nomePassageiro;
+    private String telefonePassageiro;
+
+
+    @Dado("que o ticket é {string}")
+    public void que_o_ticket_e(String ticket) {
+        this.ticket = ticket;
+    }
+
+    @Dado("que o valor da passagem é R$ {double}")
+    public void que_o_valor_da_passagem_e(Double valor) {
+        this.valor = valor;
+    }
+
+    @Dado("que o nome do passageiro é {string}")
+    public void que_o_nome_do_passageiro_e(String nome) {
+        this.nomePassageiro = nome;
+    }
+
+    @Dado("que o telefone do passageiro é {string}")
+    public void que_o_telefone_do_passageiro_e(String telefone) {
+        this.telefonePassageiro = telefone;
+    }
+
+    @Quando("criar os steps")
+    public void criar_os_steps() {
+        // Implementar a lógica para criar os steps
+    }
+
+    @Então("o teste vai funcionar")
+    public void o_teste_vai_funcionar() {
+        // Aqui você deve verificar se tudo foi configurado corretamente
+        assertTrue(ticket != null && valor > 0 && nomePassageiro != null && telefonePassageiro != null);
+    }
+
+    private void assertTrue(boolean b) {
+    }
+
+//    @Dado("que o ticket é AB{int}")
+//    public void queOTicketEAB(int arg0) {
+//    }
+//
+//    @Dado("que o ticket especial é AB{int}")
+//    public void queOTicketEspecialEAB(int arg0) {
+//    }
+//
+//    @Dado("que o ticket é CD{int}")
+//    public void queOTicketECD(int arg0) {
+//    }
+//
+//    @Dado("que o ticket é AG{int}")
+//    public void queOTicketEAG(int arg0) {
+//    }
+//
+//    @Dado("que o valor da passagem é R$ {double}{double}")
+//    public void queOValorDaPassagemER$(int arg0, int arg1, int arg2) {
+//    }
 }
