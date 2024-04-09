@@ -4,7 +4,6 @@ import io.cucumber.java.ParameterType;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
-import io.cucumber.junit.platform.engine.Cucumber;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

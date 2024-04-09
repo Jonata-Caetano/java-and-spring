@@ -1,28 +1,14 @@
 # language: pt
-Funcionalidade: Aprender Cucumber
-  Como um usuário
+@filmes
+Funcionalidade: Alugar Filme
+  Como um usuario
   Eu quero cadastrar alugueis de filmes
-  Para controlar preços e datas de entregas
+  Para controlar precos e datas de entrega
 
-  Cenario: Deve alguar um filme com sucesso
+  Cenario: Deve alugar um filme com sucesso
     Dado um filme com estoque de 2 unidades
-    E que o preço de aluguel seja R$ 3
+    E que o preco de aluguel seja R$ 3
     Quando alugar
-    Entao o preco do alguel sera R$ 3
+    Entao o preco do aluguel sera R$ 3
     E a data de entrega sera no dia seguinte
     E o estoque do filme sera 1 unidade
-
-  Cenario: Nao deve alguar um filme sem estoque
-    Dado um filme com estoque de 0 unidades
-    Quando alugar
-    Entao não será possível por falta de estoque
-    E o estoque do filme sera 0 unidades
-
-  Cenario: Deve dar condicoes especiais para categoria extendida
-    Dado um filme com estoque de 2 unidades
-    E que o preço de aluguel seja R$ 4
-    E que o tipo do alguel serja extendido
-    Quando alugar
-    Entao o preco do alguel sera R$ 8
-    E a data de entrega sera em 3 dias
-    E a pontuacao recebida sera de 2 pontos
