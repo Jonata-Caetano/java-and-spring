@@ -11,4 +11,5 @@ public class NotaAlugel {
 
     private int preco;
     private LocalDate dataEntrega;
+    private int pontuacao;
 }

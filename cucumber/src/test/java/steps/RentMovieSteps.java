@@ -16,6 +16,9 @@ public class RentMovieSteps {
 
     private Movie movie = new Movie();
     private NotaAlugel nota;
+    private String erro;
+    private String tipoAluguel;
+
 
     @Dado("um filme com estoque de {int} unidades")
     public void umFilmeComEstoqueDeUnidades(int arg0) {
@@ -29,8 +32,12 @@ public class RentMovieSteps {
 
     @Quando("alugar")
     public void alugar() {
-        RentService rentService = new RentService();
-        nota = rentService.rent(movie);
+        try {
+            RentService rentService = new RentService();
+            nota = rentService.rent(movie, tipoAluguel);
+        } catch (RuntimeException e) {
+            erro = e.getMessage();
+        }
     }
 
     @Entao("o preco do aluguel sera R$ {int}")
@@ -42,11 +49,32 @@ public class RentMovieSteps {
     public void aDataDeEntregaSeraNoDiaSeguinte() {
         LocalDate date = LocalDate.now().plusDays(1);
         LocalDate dateRetorno = nota.getDataEntrega();
-        assertEquals(date,dateRetorno);
+        assertEquals(date, dateRetorno);
     }
-
     @E("o estoque do filme sera {int} unidade")
     public void oEstoqueDoFilmeSeraUnidade(int arg0) {
-     assertEquals(arg0, movie.getEstoque());
+        assertEquals(arg0, movie.getEstoque());
+    }
+
+    @Entao("não será possivel por falta de estoque")
+    public void naoSeraPossivelPorFaltaDeEstoque() {
+        assertEquals("Filme sem estoque", erro);
+    }
+
+    @E("que o tipo do aluguel seja extendido")
+    public void queOTipoDoAluguelSejaExtendido() {
+        tipoAluguel = "extendido";
+    }
+
+    @E("a data de entrega sera em {int} dias")
+    public void aDataDeEntregaSeraEmDias(int arg0) {
+        LocalDate date = LocalDate.now().plusDays(arg0);
+        LocalDate dateRetorno = nota.getDataEntrega();
+        assertEquals(date, dateRetorno);
+    }
+
+    @E("a pontuacao recebida sera de {int} pontos")
+    public void aPontuacaoRecebidaSeraDePontos(int arg0) {
+        assertEquals(arg0, nota.getPontuacao());
     }
 }
