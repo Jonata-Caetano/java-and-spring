@@ -77,4 +77,13 @@ public class RentMovieSteps {
     public void aPontuacaoRecebidaSeraDePontos(int arg0) {
         assertEquals(arg0, nota.getPontuacao());
     }
+
+    @E("que o tipo do aluguel seja comum")
+    public void queOTipoDoAluguelSejaComum() {
+        tipoAluguel = "comum";
+    }
+
+    @E("a pontuacao recebida sera de {int} ponto")
+    public void aPontuacaoRecebidaSeraDePonto(int arg0) {
+    }
 }

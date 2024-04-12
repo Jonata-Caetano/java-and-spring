@@ -27,3 +27,12 @@ Funcionalidade: Alugar Filme
     Entao o preco do aluguel sera R$ 8
     E a data de entrega sera em 3 dias
     E a pontuacao recebida sera de 2 pontos
+
+  Cenario: Deve alugar para categoria comum
+    Dado um filme com estoque de 2 unidades
+    E que o preco de aluguel seja R$ 4
+    E que o tipo do aluguel seja comum
+    Quando alugar
+    Entao o preco do aluguel sera R$ 4
+    E a data de entrega sera no dia seguinte
+    E a pontuacao recebida sera de 1 ponto

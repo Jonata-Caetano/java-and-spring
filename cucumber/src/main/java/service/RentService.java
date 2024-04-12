@@ -23,6 +23,7 @@ public class RentService {
         } else {
             notaAlugel.setPreco(movie.getAluguel());
             notaAlugel.setDataEntrega(LocalDate.now().plusDays(1));
+            notaAlugel.setPontuacao(1);
         }
         movie.setEstoque(movie.getEstoque() - 1);
         return notaAlugel;
