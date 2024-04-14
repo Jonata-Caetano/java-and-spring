@@ -2,6 +2,7 @@ package steps;
 
 import entities.Movie;
 import entities.NotaAlugel;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Entao;
@@ -9,6 +10,7 @@ import io.cucumber.java.pt.Quando;
 import service.RentService;
 
 import java.time.LocalDate;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -22,12 +24,20 @@ public class RentMovieSteps {
 
     @Dado("um filme com estoque de {int} unidades")
     public void umFilmeComEstoqueDeUnidades(int arg0) {
+
         movie.setEstoque(arg0);
     }
 
     @E("que o preco de aluguel seja R$ {int}")
     public void queOPrecoDeAluguelSejaR$(int arg0) {
         movie.setAluguel(arg0);
+    }
+
+    @Dado("um filme")
+    public void umFilme(DataTable dataTable) {
+        Map<String, String> map = dataTable.asMap(String.class, String.class);
+        movie.setEstoque(Integer.parseInt(map.get("estoque")));
+        movie.setAluguel(Integer.parseInt(map.get("preco")));
     }
 
     @Quando("alugar")
@@ -86,4 +96,6 @@ public class RentMovieSteps {
     @E("a pontuacao recebida sera de {int} ponto")
     public void aPontuacaoRecebidaSeraDePonto(int arg0) {
     }
+
+
 }
